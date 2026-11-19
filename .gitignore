@@ -1,0 +1,89 @@
+__pycache__/
+*.pyc
+# package files: a global ignore such as "__*" must never drop them
+!__init__.py
+
+# macOS / editors
+.DS_Store
+.vscode/
+.idea/
+
+# local agent state (settings, sessions)
+.claude/
+
+# ===================== NEVER IN GIT =====================
+# The robot's private knowledge, secrets and everything it records live OUTSIDE this repo
+# (~/.config/arcby/, ~/.local/share/arcby/, ~/scratch/). The rules below are a second wall in case a
+# copy ever lands inside it. tools/hooks/pre-commit is the third wall
+# (enable: git config core.hooksPath tools/hooks).
+
+# --- data: a symlink to the robot's data (on the Pi: ln -s /mnt/arcby-data data) - never its contents
+/data
+/data/
+
+# --- private/: the real household and anything personal kept next to the code ---
+private/
+
+# --- secrets ---
+secrets.env
+*.env
+!*.env.example
+.env*
+gcloud*.json
+*service-account*.json
+*credentials*.json
+*token*.json
+household.json
+*.pem
+*.key
+*.p12
+id_rsa*
+id_ed25519*
+
+# --- what the robot sees and hears: faces, voices, people stores, recordings, datasets ---
+people*/
+collect/
+heard/
+barge/
+blackbox/
+data/
+recordings/
+scratch/
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.ogg
+*.raw
+*.pcm
+*.h264
+*.mp4
+*.mov
+*.avi
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.pt
+*.onnx
+*.tflite
+*.db
+*.sqlite*
+*.csv
+*.jsonl
+*.log
+*.json
+!code/examples/*.json
+
+# --- images: only cleaned photos (tools/clean_photos.py) in docs/images/ ---
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.heic
+*.HEIC
+*.heif
+*.webp
+!docs/images/*.jpg
+!docs/images/*.png
+docs/images/raw/

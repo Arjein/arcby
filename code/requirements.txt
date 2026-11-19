@@ -1,0 +1,10 @@
+# Arcby - Python 3.11+. Enough for the tests and the simulators on any computer.
+numpy>=1.26
+pillow>=10.0
+onnxruntime>=1.17        # the face, body and voice models (ONNX, CPU)
+
+# Optional
+anthropic>=0.40          # the LLM mind (without it: rule-based replies)
+# faster-whisper         # only for the local-STT comparison in hwtest/earshots.py
+
+# On the Raspberry Pi, from apt (not pip): python3-picamera2 python3-gpiozero
